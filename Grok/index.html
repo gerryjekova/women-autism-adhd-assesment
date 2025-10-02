@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Women & Autism – Awareness + Self-Assessment</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Women & Autism – Awareness + Self-Assessment</h1>
+        <div class="muted">A gentle screening tool and curated resource hub (not a diagnosis).</div>
+      </div>
+    </header>
+
+    <div class="intro">
+      <div class="left">
+        <div class="card">
+          <h2>Women & Autism – Awareness</h2>
+          <div class="muted">
+            This page is designed for women and AFAB people who suspect autistic traits, want structured self-reflection, and curated links to reliable resources. The self-assessment runs in 8 stages (one at a time) and scores each stage separately. After completing all 8 stages you'll get a combined score, a probability estimate, and suggested subtype/manifestation matches based on which areas were highest.
+          </div>
+          <nav>
+            <button class="nav-btn" data-section="about" onclick="showSection('about')">About</button>
+            <button class="nav-btn" data-section="quiz" onclick="showSection('quiz')">Take the Assessment</button>
+            <button class="nav-btn" data-section="resources" onclick="showSection('resources')">Resources</button>
+            <button class="nav-btn" data-section="guidance" onclick="showSection('guidance')">Next Steps</button>
+          </nav>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="card section-hidden">
+          <h2>About – purpose & quick learning bites</h2>
+
+          <div class="muted about-intro">
+            This self-assessment is a screening tool adapted from the project sources to help women/AFAB people reflect on traits commonly under-recognized in female presentations of autism. It is not diagnostic – use it to gather examples, track patterns, and prepare for a clinical conversation.
+          </div>
+
+          <h3>Key learning bites</h3>
+          <div class="about-block">
+            <div class="bite">
+              <div class="title">What is autism?</div>
+              <div class="content">Autism is a neurodevelopmental difference affecting social communication, sensory processing and repetitive patterns of behavior. It is lifelong and varies greatly between people.</div>
+            </div>
+
+            <div class="bite">
+              <div class="title">How it can look in adults</div>
+              <div class="content">In adults, signs can include difficulty reading emotions, high anxiety in social settings, literal interpretation of language, and strict routines – but presentation varies. Gathering childhood examples helps with assessment.</div>
+            </div>
+
+            <div class="bite">
+              <div class="title">Female-presenting differences</div>
+              <div class="content">Women and girls often 'mask' by mimicking social behaviours, using scripts, or camouflaging stimming – which makes detection harder and leads to late or missed diagnoses.</div>
+            </div>
+
+            <div class="bite">
+              <div class="title">ADHD & co-occurrence</div>
+              <div class="content">Autism and ADHD commonly co-occur; executive function and attention challenges may overlap and complicate assessment or support planning. Make sure clinicians consider both.</div>
+            </div>
+          </div>
+
+          <h3 class="reflection-heading">Reflection prompts (try writing these down)</h3>
+          <ol class="muted">
+            <li>List 3 childhood examples where routines, special interests or social differences stood out.</li>
+            <li>When do you feel most exhausted after social encounters? How long to recover?</li>
+            <li>Have you developed scripts, rehearsed phrases, or suppressed movements/stims to fit in?</li>
+            <li>Do sensory things (lights, sounds, texture) trigger strong physical reactions?</li>
+            <li>Has anything changed across menstrual/hormonal cycles? (some people report fluctuations)</li>
+          </ol>
+        </div>
+        <!-- end ABOUT -->
+
+        <div id="quizContainer" class="card section-visible">
+          <h2>Self-Assessment – 8 Stages (one at a time)</h2>
+          <div class="muted">You will see short blocks of questions. Answer honestly. Options are 0 (Never) → 4 (Very Often). Each stage saves separately.</div>
+
+          <div id="quizArea">
+            <!-- Stages will be injected by JS -->
+          </div>
+
+          <div class="quiz-progress-section">
+            <div class="progress"><div id="progressBar"></div></div>
+            <div class="progress-labels">
+              <div class="muted" id="stageLabel">Stage 0 / 8</div>
+              <div class="muted" id="scoreLabel">Total points: 0</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="finalCard" class="card section-visible">
+          <h2>Final Result</h2>
+          <div id="finalSummary" class="results">
+            <!-- results injected -->
+          </div>
+          <div class="final-actions">
+            <button class="primary" onclick="restart()">Retake assessment</button>
+            <button class="ghost" onclick="downloadReport()">Download basic report</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="muted card">
+          <strong>Quick links</strong>
+          <div class="resources resources-spacing">
+            <a href="https://www.autism.org.uk" target="_blank" rel="noopener">National Autistic Society (UK)</a>
+            <a href="https://www.nhs.uk/conditions/autism/" target="_blank" rel="noopener">NHS – Autism</a>
+            <a href="https://awnnetwork.org/" target="_blank" rel="noopener">Autistic Women & Nonbinary Network (AWN)</a>
+            <a href="https://www.cdc.gov/ncbddd/autism/" target="_blank" rel="noopener">CDC – Autism</a>
+            <a href="https://www.healthline.com/health/autism-in-women" target="_blank" rel="noopener">Healthline – Autism in women</a>
+          </div>
+        </div>
+
+        <div class="card muted">
+          <strong>How to use these results</strong>
+          <ul class="results-usage">
+            <li>Screening only – not a clinical diagnosis.</li>
+            <li>If results are elevated, consider discussing with a GP or specialist.</li>
+            <li>Take notes on childhood development & examples to bring to appointments.</li>
+          </ul>
+        </div>
+
+        <div class="card muted">
+          <strong>About scoring & staging</strong>
+          <div class="scoring-info">This tool divides screening into targeted areas: social communication, restricted/repetitive behaviour, executive function/ADHD traits, female-specific manifestations (masking, hormonal impacts), sensory/co-occurring features, burnout/energy, masking strategies, and life impact – each stage scored separately to reflect area-specific patterns. (Based on your provided materials.)</div>
+        </div>
+
+        <div class="card muted">
+          <strong>Source note</strong>
+          <div class="source-note">Assessment sections and scoring approach were drawn from compiled materials you provided in your upload.</div>
+        </div>
+      </aside>
+    </div>
+
+    <div id="resources" class="card section-visible">
+      <h2>Resources & Further Reading</h2>
+      <div class="muted">
+        Links below are curated from reputable organizations and from the uploaded source material; they cover assessment routes, support groups, female-focused information, and co-occurring ADHD resources.
+      </div>
+      <div class="resources resources-main">
+        <a href="https://www.autism.org.uk" target="_blank" rel="noopener">National Autistic Society – Women & girls</a>
+        <a href="https://www.nhs.uk/conditions/autism/" target="_blank" rel="noopener">NHS – Getting diagnosed & support</a>
+        <a href="https://awnnetwork.org/" target="_blank" rel="noopener">Autistic Women & Nonbinary Network</a>
+        <a href="https://adhduk.co.uk/" target="_blank" rel="noopener">ADHD UK (co-occurring info)</a>
+        <a href="https://www.healthline.com/health/autism-in-women" target="_blank" rel="noopener">Healthline – Autism in women overview</a>
+      </div>
+    </div>
+
+    <div id="guidance" class="card section-hidden">
+      <h2>Next steps & practical guidance</h2>
+      <div class="muted">
+        If screening indicates elevated traits:
+        <ol>
+          <li>Gather developmental history (childhood examples) and any school/medical reports.</li>
+          <li>Take your report to your GP or a clinical psychologist experienced in adult autism assessments.</li>
+          <li>Consider local support groups (AWN, NAS) and peer networks for lived-experience guidance.</li>
+        </ol>
+      </div>
+      <div class="guidance-note muted">
+        Note: co-occurring ADHD is common; assessment pathways should consider both conditions together for accurate formulation.
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <strong>Women & Autism Project</strong>
+          <p>A community-driven awareness and self-assessment initiative.<br>
+          Not a diagnostic tool.</p>
+        </div>
+        <div class="footer-col">
+          <strong>Quick Links</strong>
+          <ul>
+            <li><a href="#" onclick="showSection('about')">About</a></li>
+            <li><a href="#" onclick="showSection('quiz')">Assessment</a></li>
+            <li><a href="#" onclick="showSection('resources')">Resources</a></li>
+            <li><a href="#" onclick="showSection('guidance')">Next Steps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <strong>Credits</strong>
+          <p>Based on compiled materials you provided.<br>
+          Designed for awareness & reflection.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Women & Autism – Awareness Project
+      </div>
+    </footer>
+  </div>
+
+  <script src="quiz-data.js"></script>
+  <script src="quiz-app.js"></script>
+</body>
+</html>
