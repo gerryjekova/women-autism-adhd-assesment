@@ -1,5 +1,5 @@
   :root{
-    --bg:#f7f9fc; --card:#fff; --accent:#6b46c1; --accent2:#ec4899; /* pink */
+    --bg:#f7f9fc; --card:#fff; --accent:#ee80d2; --accent2:#ec4899; /* pink */
      --accent3:#3b82f6; /* blue */
      --accent-bg:#f9f7ff; /* soft background */
     --muted:#6b7280;
@@ -69,15 +69,17 @@
 
 /* Animate option selection */
 .opt {
+  color: white;
   transition: all 0.25s ease;
 }
 .opt:hover {
-  background: #f4f0ff;
+  background: #ffc8f1;
   border-color: #a78bfa;
 }
 .opt.selected {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(107,70,193,0.15);
+  color: white;
 }
 
 /* Animate cards appearing */
@@ -95,6 +97,7 @@ button.primary, button.ghost {
 }
 button.primary:hover {
   transform: scale(1.05);
+  color: white;
   background: linear-gradient(90deg, var(--accent), #8b5cf6);
 }
 button.ghost:hover {
@@ -115,7 +118,7 @@ button.ghost:hover {
   .stage{display:none}
   .stage.active{display:block}
   .question{margin:12px 0;padding:12px;border-radius:8px;background:#fbfdff;border:1px solid rgba(11,22,39,0.03)}
-  .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;  color: white;}
   .opt{padding:8px 10px;border-radius:8px;border:1px solid rgba(11,22,39,0.06);cursor:pointer;user-select:none}
   .opt.selected{background:linear-gradient(90deg,var(--accent),#8b5cf6);color:white;border:none}
   .controls{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
